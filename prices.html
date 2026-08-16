@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOW MEDIA | الأسعار</title>
+
+    <style>
+
+        /* =========================
+           الإعدادات العامة
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #ffffff;
+            color: #121212;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           القائمة
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav .active {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background: #121212;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 30px;
+        }
+
+        /* =========================
+           رأس الصفحة
+        ========================= */
+
+        .page-hero {
+            min-height: 420px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .page-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.72);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .page-hero h1 {
+            font-size: 60px;
+            margin: 15px 0;
+        }
+
+        .page-hero h1 span {
+            color: #d4af37;
+        }
+
+        .page-hero p {
+            color: #eeeeee;
+            font-size: 18px;
+        }
+
+        /* =========================
+           قسم الأسعار
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .section-title p {
+            color: #777777;
+        }
+
+        /* =========================
+           الباقات
+        ========================= */
+
+        .pricing {
+            background: #f5f5f5;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .price-card {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 20px;
+            padding: 35px 28px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.10);
+        }
+
+        .price-card.featured {
+            background: #121212;
+            color: #ffffff;
+            transform: scale(1.03);
+        }
+
+        .featured:hover {
+            transform: scale(1.03) translateY(-8px);
+        }
+
+        .popular {
+            position: absolute;
+            top: -14px;
+            right: 50%;
+            transform: translateX(50%);
+            background: #d4af37;
+            color: #121212;
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .price-card h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #d4af37;
+        }
+
+        .price small {
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .price-list {
+            list-style: none;
+            text-align: right;
+            margin: 25px 0;
+        }
+
+        .price-list li {
+            padding: 9px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .featured .price-list li {
+            border-color: #333333;
+        }
+
+        .price-list li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            background: #121212;
+            color: #ffffff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #d4af37;
+            color: #121212;
+        }
+
+        .featured .button {
+            background: #d4af37;
+            color: #121212;
+        }
+
+        .featured .button:hover {
+            background: #ffffff;
+        }
+
+        /* =========================
+           ملاحظة الأسعار
+        ========================= */
+
+        .note {
+            margin-top: 45px;
+            background: #ffffff;
+            border-right: 4px solid #d4af37;
+            padding: 20px 25px;
+            border-radius: 10px;
+            color: #666666;
+        }
+
+        /* =========================
+           خدمة حسب الطلب
+        ========================= */
+
+        .custom {
+            background: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .custom p {
+            color: #aaaaaa;
+            max-width: 700px;
+            margin: 15px auto 25px;
+        }
+
+        .custom .button {
+            background: #d4af37;
+            color: #121212;
+        }
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+            background: #080808;
+            color: #999999;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            display: block;
+            margin: 6px 0;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           الأجهزة الصغيرة
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 50px;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+
+            .featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         القائمة
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                WOW <span>MEDIA</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html" class="active">
+                    الأسعار
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <a href="booking.html" class="nav-button">
+                احجزي الآن
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         رأس الصفحة
+    ========================= -->
+
+    <section class="page-hero">
+
+        <img
+            src="images/Red Modern Photography (Business Cards)_20260118_101022_٠٠٠٠.png"
+            alt="أسعار WOW MEDIA"
+        >
+
+        <div class="container hero-content">
+
+            <div class="small-title">
+                WOW MEDIA PRICES
+            </div>
+
+            <h1>
+                باقاتنا
+                <span>وأسعارنا</span>
+            </h1>
+
+            <p>
+                اختر الباقة المناسبة لاحتياجك،
+                ويمكننا أيضًا تجهيز باقة خاصة حسب طلبك.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         الباقات
+    ========================= -->
+
+    <section class="pricing">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    OUR PACKAGES
+                </div>
+
+                <h2>
+                    اختر الباقة المناسبة
+                </h2>
+
+                <p>
+                    أسعار قابلة للتعديل حسب نوع التصوير
+                    ومدة الجلسة والتفاصيل المطلوبة.
+                </p>
+
+            </div>
+
+            <div class="pricing-grid">
+
+                <!-- الباقة الأولى -->
+
+                <div class="price-card">
+
+                    <h3>
+                        الباقة الأساسية
+                    </h3>
+
+                    <div class="price">
+                        XXX
+                        <small>ريال</small>
+                    </div>
+
+                    <ul class="price-list">
+
+                        <li>
+                            جلسة تصوير
+                        </li>
+
+                        <li>
+                            مدة مناسبة للتصوير
+                        </li>
+
+                        <li>
+                            عدد محدد من الصور
+                        </li>
+
+                        <li>
+                            معالجة الصور
+                        </li>
+
+                    </ul>
+
+                    <a href="booking.html" class="button">
+                        احجز الآن
+                    </a>
+
+                </div>
+
+                <!-- الباقة الثانية -->
+
+                <div class="price-card featured">
+
+                    <div class="popular">
+                        الأكثر طلبًا
+                    </div>
+
+                    <h3>
+                        الباقة المميزة
+                    </h3>
+
+                    <div class="price">
+                        XXX
+                        <small>ريال</small>
+                    </div>
+
+                    <ul class="price-list">
+
+                        <li>
+                            جلسة تصوير متكاملة
+                        </li>
+
+                        <li>
+                            مدة تصوير أطول
+                        </li>
+
+                        <li>
+                            عدد أكبر من الصور
+                        </li>
+
+                        <li>
+                            معالجة احترافية
+                        </li>
+
+                        <li>
+                            صور جماعية وفردية
+                        </li>
+
+                    </ul>
+
+                    <a href="booking.html" class="button">
+                        احجز الآن
+                    </a>
+
+                </div>
+
+                <!-- الباقة الثالثة -->
+
+                <div class="price-card">
+
+                    <h3>
+                        الباقة الخاصة
+                    </h3>
+
+                    <div class="price">
+                        XXX
+                        <small>ريال</small>
+                    </div>
+
+                    <ul class="price-list">
+
+                        <li>
+                            جلسة حسب الطلب
+                        </li>
+
+                        <li>
+                            عدد صور أكبر
+                        </li>
+
+                        <li>
+                            أفكار وتصوير خاص
+                        </li>
+
+                        <li>
+                            معالجة احترافية
+                        </li>
+
+                        <li>
+                            تفاصيل حسب الاتفاق
+                        </li>
+
+                    </ul>
+
+                    <a href="booking.html" class="button">
+                        اطلب الباقة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="note">
+
+                <strong>
+                    ملاحظة:
+                </strong>
+
+                الأسعار المعروضة قابلة للتعديل حسب نوع
+                المناسبة، عدد الساعات، الموقع، وعدد الصور
+                المطلوبة. تواصل معنا للحصول على السعر النهائي.
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         باقة حسب الطلب
+    ========================= -->
+
+    <section class="custom">
+
+        <div class="container">
+
+            <div class="small-title">
+                CUSTOM PACKAGE
+            </div>
+
+            <h2>
+                لم تجد الباقة المناسبة؟
+            </h2>
+
+            <p>
+                أخبرنا بتفاصيل المناسبة أو جلسة التصوير
+                وسنجهز لك عرضًا مناسبًا حسب احتياجك.
+            </p>
+
+            <a href="booking.html" class="button">
+                اطلب باقة خاصة
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         الفوتر
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    WOW <span>MEDIA</span>
+                </div>
+
+                <p>
+                    Photography • Media • Memories
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    روابط سريعة
+                </h3>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    تواصل معنا
+                </h3>
+
+                <a
+                    href="https://www.instagram.com/p/DZs5bAlCNd0/?igsh=MXNlMnYwOWx2ZXRwcw=="
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a href="https://wa.me/967770077475">
+                    WhatsApp
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+
+            © 2026 WOW MEDIA — جميع الحقوق محفوظة
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

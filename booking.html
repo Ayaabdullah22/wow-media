@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOW MEDIA | الحجز</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f5f5f5;
+            color: #121212;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           القائمة
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav .active {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background: #121212;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 30px;
+        }
+
+        /* =========================
+           رأس الصفحة
+        ========================= */
+
+        .page-hero {
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .page-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.72);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .page-hero h1 {
+            font-size: 60px;
+            margin: 15px 0;
+        }
+
+        .page-hero h1 span {
+            color: #d4af37;
+        }
+
+        .page-hero p {
+            color: #eeeeee;
+            font-size: 18px;
+        }
+
+        /* =========================
+           قسم الحجز
+        ========================= */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .booking-section {
+            background: #f5f5f5;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        /* =========================
+           معلومات الحجز
+        ========================= */
+
+        .booking-info {
+            background: #121212;
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .booking-info h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .booking-info p {
+            color: #aaaaaa;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin: 22px 0;
+            align-items: center;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: #d4af37;
+            color: #121212;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .info-item h3 {
+            font-size: 16px;
+        }
+
+        .info-item p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================
+           نموذج الحجز
+        ========================= */
+
+        .booking-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #dddddd;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .booking-form h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .form-description {
+            color: #777777;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            background: #ffffff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #d4af37;
+        }
+
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            border: none;
+            background: #121212;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #d4af37;
+            color: #121212;
+        }
+
+        /* =========================
+           تنبيه
+        ========================= */
+
+        .notice {
+            margin-top: 25px;
+            background: #fff8df;
+            border-right: 4px solid #d4af37;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #666666;
+            font-size: 14px;
+        }
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+            background: #080808;
+            color: #999999;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            display: block;
+            margin: 6px 0;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           الجوال
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form,
+            .booking-info {
+                padding: 25px;
+            }
+
+            .page-hero h1 {
+                font-size: 40px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         القائمة
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                WOW <span>MEDIA</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html">
+                    الأسعار
+                </a>
+
+                <a href="booking.html" class="active">
+                    الحجز
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <a href="booking.html" class="nav-button">
+                احجزي الآن
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         رأس الصفحة
+    ========================= -->
+
+    <section class="page-hero">
+
+        <img
+            src="images/Red Modern Photography (Business Cards)_20260118_101022_٠٠٠١.png"
+            alt="الحجز في WOW MEDIA"
+        >
+
+        <div class="container hero-content">
+
+            <div class="small-title">
+                BOOK WITH WOW MEDIA
+            </div>
+
+            <h1>
+                احجزي
+                <span>موعدك</span>
+            </h1>
+
+            <p>
+                أخبرينا بتفاصيل جلسة التصوير أو المناسبة،
+                وسنتواصل معك لتأكيد الحجز.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         نموذج الحجز
+    ========================= -->
+
+    <section class="booking-section">
+
+        <div class="container">
+
+            <div class="booking-layout">
+
+                <!-- معلومات -->
+
+                <div class="booking-info">
+
+                    <div class="small-title">
+                        LET'S WORK TOGETHER
+                    </div>
+
+                    <h2>
+                        احجزي معنا بسهولة
+                    </h2>
+
+                    <p>
+                        املئي البيانات وسنتواصل معك
+                        لتأكيد الموعد والتفاصيل.
+                    </p>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                اختاري الخدمة
+                            </h3>
+
+                            <p>
+                                تخرج، مناسبة أو جلسة تصوير.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                حددي الموعد
+                            </h3>
+
+                            <p>
+                                اكتبي التاريخ المناسب لك.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                نتواصل معك
+                            </h3>
+
+                            <p>
+                                لتأكيد الحجز والتفاصيل.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- النموذج -->
+
+                <div class="booking-form">
+
+                    <h2>
+                        نموذج الحجز
+                    </h2>
+
+                    <p class="form-description">
+                        يرجى تعبئة البيانات التالية.
+                    </p>
+
+                    <!--
+                        غيّري رقم الواتساب في رابط action
+                        إلى رقم WOW MEDIA الحقيقي.
+                    -->
+
+                    <form
+                        action="https://wa.me/967770077475"
+                        method="get"
+                        target="_blank"
+                    >
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    الاسم الكامل
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="اكتبي اسمك"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    رقم الهاتف
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="رقم الهاتف"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="service">
+                                    نوع الخدمة
+                                </label>
+
+                                <select
+                                    id="service"
+                                    name="service"
+                                    required
+                                >
+
+                                    <option value="">
+                                        اختاري الخدمة
+                                    </option>
+
+                                    <option value="تصوير المناسبات">
+                                        تصوير المناسبات
+                                    </option>
+
+                                    <option value="تصوير التخرج">
+                                        تصوير التخرج
+                                    </option>
+
+                                    <option value="جلسة تصوير">
+                                        جلسة تصوير
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="date">
+                                    تاريخ التصوير
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group full">
+
+                                <label for="location">
+                                    مكان التصوير
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    placeholder="اكتبي مكان التصوير"
+                                >
+
+                            </div>
+
+                            <div class="form-group full">
+
+                                <label for="message">
+                                    تفاصيل إضافية
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="اكتبي أي تفاصيل أو طلبات خاصة..."
+                                ></textarea>
+
+                            </div>
+
+                            <div class="form-group full">
+
+                                <button
+                                    type="submit"
+                                    class="submit-button"
+                                >
+                                    إرسال طلب الحجز عبر واتساب
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="notice">
+
+                        <strong>
+                            ملاحظة:
+                        </strong>
+
+                        إرسال النموذج لا يعني تأكيد الحجز
+                        مباشرة، وسيتم التواصل معك لتأكيد
+                        الموعد والتفاصيل.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         الفوتر
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    WOW <span>MEDIA</span>
+                </div>
+
+                <p>
+                    Photography • Media • Memories
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    روابط سريعة
+                </h3>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html">
+                    الأسعار
+                </a>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    تواصل معنا
+                </h3>
+
+                <a
+                    href="https://www.instagram.com/p/DZs5bAlCNd0/?igsh=MXNlMnYwOWx2ZXRwcw=="
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a href="https://wa.me/967770077475">
+                    WhatsApp
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+
+            © 2026 WOW MEDIA — جميع الحقوق محفوظة
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

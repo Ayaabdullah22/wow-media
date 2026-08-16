@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOW MEDIA | أعمالنا</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #ffffff;
+            color: #121212;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav .active {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background: #121212;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 30px;
+        }
+
+        /* Hero */
+
+        .page-hero {
+            min-height: 450px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .page-hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .page-hero h1 {
+            font-size: 65px;
+            margin: 15px 0;
+        }
+
+        .page-hero h1 span {
+            color: #d4af37;
+        }
+
+        .page-hero p {
+            color: #eeeeee;
+            font-size: 18px;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .section-title p {
+            color: #777777;
+        }
+
+        /* Gallery */
+
+        .gallery-section {
+            background: #ffffff;
+        }
+
+        .category-title {
+            margin: 60px 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-title h3 {
+            font-size: 30px;
+        }
+
+        .category-title span {
+            width: 45px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            background: #eeeeee;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item::after {
+            content: "WOW MEDIA";
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            color: #d4af37;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* Instagram */
+
+        .instagram {
+            background: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .instagram p {
+            color: #aaaaaa;
+            margin: 15px auto 25px;
+            max-width: 600px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d4af37;
+            color: #121212;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #ffffff;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #080808;
+            color: #999999;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            display: block;
+            margin: 6px 0;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                WOW <span>MEDIA</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html" class="active">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html">
+                    الأسعار
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <a href="booking.html" class="nav-button">
+                احجزي الآن
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- Hero -->
+
+    <section class="page-hero">
+
+        <img
+            src="images/20260325_063503 (2).jpg"
+            alt="أعمال WOW MEDIA"
+        >
+
+        <div class="container hero-content">
+
+            <div class="small-title">
+                OUR PORTFOLIO
+            </div>
+
+            <h1>
+                أعمالنا
+                <span>المميزة</span>
+            </h1>
+
+            <p>
+                مجموعة من اللحظات التي قمنا بتوثيقها
+                من التخرج والمناسبات وجلسات التصوير.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Gallery -->
+
+    <section class="gallery-section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    OUR WORK
+                </div>
+
+                <h2>
+                    معرض أعمالنا
+                </h2>
+
+                <p>
+                    بعض من أعمال WOW MEDIA التي نفخر بها.
+                </p>
+
+            </div>
+
+            <!-- التخرج -->
+
+            <div class="category-title">
+
+                <span></span>
+
+                <h3>
+                    🎓 تصوير التخرج
+                </h3>
+
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0155.jpg" alt="تصوير تخرج">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0161.jpg" alt="تصوير تخرج">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0165.jpg" alt="تصوير تخرج">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0167.jpg" alt="تصوير تخرج">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0173.jpg" alt="تصوير تخرج">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG-20260816-WA0175.jpg" alt="تصوير تخرج">
+                </div>
+
+            </div>
+
+            <!-- المناسبات -->
+
+            <div class="category-title">
+
+                <span></span>
+
+                <h3>
+                    📸 تصوير المناسبات
+                </h3>
+
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/861A0040.JPG" alt="تصوير مناسبة">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/3H9A0787.JPG" alt="تصوير مناسبة">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/861A0296.JPG" alt="تصوير مناسبة">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/861A0324.JPG" alt="تصوير مناسبة">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/861A0123.JPG" alt="تصوير مناسبة">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/861A0348.JPG" alt="تصوير مناسبة">
+                </div>
+
+            </div>
+
+            <!-- الجلسات -->
+
+            <div class="category-title">
+
+                <span></span>
+
+                <h3>
+                    📷 جلسات التصوير
+                </h3>
+
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/20251206_190044.jpg" alt="جلسة تصوير">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG_9611.JPG"all="جلسة تصوير">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG_9544.JPG" alt="جلسة تصوير">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG_9601.JPG" alt="جلسة تصوير">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG_9551.JPG" alt="جلسة تصوير">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="اعمالنا/IMG_9453.JPG" alt="جلسة تصوير">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Instagram -->
+
+    <section class="instagram">
+
+        <div class="container">
+
+            <div class="small-title">
+                FOLLOW WOW MEDIA
+            </div>
+
+            <h2>
+                شاهد المزيد من أعمالنا
+            </h2>
+
+            <p>
+                تابعونا على Instagram لمشاهدة أحدث
+                جلسات التصوير والأعمال الجديدة.
+            </p>
+
+            <a
+                href="https://instagram.com/wowmedia2026"
+                class="button"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    WOW <span>MEDIA</span>
+                </div>
+
+                <p>
+                    Photography • Media • Memories
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    روابط سريعة
+                </h3>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    تواصل معنا
+                </h3>
+
+                <a
+                    href="https://instagram.com/wowmedia2026"
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a href="https://wa.me/967XXXXXXXXX">
+                    WhatsApp
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+
+            © 2026 WOW MEDIA — جميع الحقوق محفوظة
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

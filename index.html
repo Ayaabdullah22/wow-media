@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOW MEDIA | الرئيسية</title>
+
+    <style>
+
+        /* =========================
+           الإعدادات العامة
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+
+            background-color: #FFFFFF;
+
+            color: #121212;
+
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .featured-video {
+    width: 300%;
+    margin: 150px auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.featured-video video {
+    width: 100%;
+    height: 400px;
+    display: block;
+    object-fit: cover;
+}
+
+        /* =========================
+           الألوان
+        ========================= */
+
+        /*
+        الأسود:
+        #121212
+
+        الأبيض:
+        #FFFFFF
+
+        الرمادي الفاتح:
+        #F2F2F2
+
+        الرمادي:
+        #777777
+
+        الذهبي:
+        #D4AF37
+        */
+
+        /* =========================
+           شريط التنقل
+        ========================= */
+
+        header {
+            background-color: #FFFFFF;
+
+            border-bottom: 1px solid #E5E5E5;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .navbar {
+
+            min-height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+
+            color: #D4AF37;
+        }
+
+        nav {
+
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        nav a {
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+
+            color: #D4AF37;
+        }
+
+        .nav-button {
+
+            background-color: #121212;
+
+            color: #FFFFFF;
+
+            padding: 10px 22px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+
+            background-color: #D4AF37;
+
+            color: #121212;
+        }
+
+        /* =========================
+           الواجهة الرئيسية
+        ========================= */
+
+        .hero {
+
+            min-height: 680px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            color: #FFFFFF;
+
+            overflow: hidden;
+        }
+
+        .hero img {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            top: 0;
+
+            right: 0;
+
+            z-index: -2;
+        }
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+
+                    90deg,
+
+                    rgba(0,0,0,0.88),
+
+                    rgba(0,0,0,0.60),
+
+                    rgba(0,0,0,0.25)
+
+                );
+
+            z-index: -1;
+        }
+
+        .hero-content {
+
+            max-width: 700px;
+        }
+
+        .small-title {
+
+            color: #D4AF37;
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+        }
+
+        .hero h1 {
+
+            font-size: 72px;
+
+            line-height: 1.1;
+
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+
+            color: #D4AF37;
+        }
+
+        .hero p {
+
+            font-size: 18px;
+
+            color: #EEEEEE;
+
+            max-width: 600px;
+        }
+
+        .buttons {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+
+            display: inline-block;
+
+            padding: 12px 27px;
+
+            border-radius: 30px;
+
+            background-color: #D4AF37;
+
+            color: #121212;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+
+            transform: translateY(-3px);
+
+            background-color: #FFFFFF;
+        }
+
+        .button-dark {
+
+            background-color: transparent;
+
+            border: 1px solid #FFFFFF;
+
+            color: #FFFFFF;
+        }
+
+        .button-dark:hover {
+
+            background-color: #FFFFFF;
+
+            color: #121212;
+        }
+
+        /* =========================
+           الأقسام
+        ========================= */
+
+        section {
+
+            padding: 90px 0;
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 45px;
+        }
+
+        .section-title h2 {
+
+            font-size: 42px;
+
+            margin: 10px 0;
+        }
+
+        .section-title p {
+
+            color: #777777;
+        }
+
+        /* =========================
+           من نحن
+        ========================= */
+
+        .about {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .about-image img {
+
+            width: 100%;
+
+            height: 470px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+        }
+
+        .about-text h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+
+            color: #777777;
+
+            margin-bottom: 15px;
+        }
+
+        .features {
+
+            list-style: none;
+
+            margin: 20px 0;
+        }
+
+        .features li {
+
+            margin: 10px 0;
+        }
+
+        .features li::before {
+
+            content: "✓";
+
+            color: #D4AF37;
+
+            font-weight: bold;
+
+            margin-left: 10px;
+        }
+
+        /* =========================
+           الخدمات
+        ========================= */
+
+        .services {
+
+            background-color: #121212;
+
+            color: #FFFFFF;
+        }
+
+        .services .section-title p {
+
+            color: #AAAAAA;
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+
+            background-color: #1D1D1D;
+
+            border: 1px solid #333333;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #D4AF37;
+        }
+
+        .card img {
+
+            width: 100%;
+
+            height: 240px;
+
+            object-fit: cover;
+        }
+
+        .card-content {
+
+            padding: 25px;
+        }
+
+        .card-content h3 {
+
+            margin-bottom: 10px;
+
+            color: #FFFFFF;
+        }
+
+        .card-content p {
+
+            color: #AAAAAA;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           معرض الأعمال
+        ========================= */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .gallery img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+
+            transform: scale(1.03);
+        }
+
+        /* =========================
+           الأسعار
+        ========================= */
+
+        .prices {
+
+            background-color: #F2F2F2;
+        }
+
+        .price-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background-color: #FFFFFF;
+        }
+
+        .price-table th,
+        .price-table td {
+
+            padding: 18px;
+
+            border: 1px solid #DDDDDD;
+
+            text-align: center;
+        }
+
+        .price-table th {
+
+            background-color: #121212;
+
+            color: #FFFFFF;
+        }
+
+        .price-table tr:hover {
+
+            background-color: #F8F8F8;
+        }
+
+        /* =========================
+           قسم الحجز
+        ========================= */
+
+        .booking {
+
+            background-color: #121212;
+
+            color: #FFFFFF;
+
+            text-align: center;
+        }
+
+        .booking h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .booking p {
+
+            color: #AAAAAA;
+
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+
+            background-color: #080808;
+
+            color: #999999;
+
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        footer h3 {
+
+            color: #FFFFFF;
+
+            margin-bottom: 12px;
+        }
+
+        footer a {
+
+            display: block;
+
+            margin: 6px 0;
+
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+
+            color: #D4AF37;
+        }
+
+        .copyright {
+
+            border-top: 1px solid #292929;
+
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           الشاشات المتوسطة
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                padding: 20px 0;
+            }
+
+            nav {
+
+                justify-content: center;
+            }
+
+            .hero h1 {
+
+                font-size: 52px;
+            }
+
+            .about {
+
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        /* =========================
+           الهاتف
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+
+                font-size: 43px;
+            }
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         شريط التنقل
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+
+                WOW <span>MEDIA</span>
+
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html">
+                    الأسعار
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <a href="booking.html" class="nav-button">
+
+                احجزي الآن
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         المحتوى
+    ========================= -->
+
+    <main>
+
+        <!-- الواجهة الرئيسية -->
+
+        <section class="hero">
+
+            <img
+                src="images/20260325_063503 (2).jpg"
+                alt="WOW MEDIA"
+            >
+
+            <div class="container hero-content">
+
+                <div class="small-title">
+
+                    WOW MEDIA — PHOTOGRAPHY & MEDIA
+
+                </div>
+
+                <h1>
+
+                    نحوّل اللحظة إلى
+
+                    <span>
+                        ذكرى
+                    </span>
+
+                </h1>
+
+                <p>
+
+                    نوثق أجمل لحظاتكم بصور تحكي التفاصيل
+                    وتحفظ المشاعر، ونقدم خدمات تصوير وميديا
+                    بأسلوب احترافي ومميز.
+
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                        href="portfolio.html"
+                        class="button"
+                    >
+
+                        شاهدي أعمالنا
+
+                    </a>
+
+                    <a
+                        href="booking.html"
+                        class="button button-dark"
+                    >
+
+                        احجزي موعدك
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- من نحن -->
+
+        <section>
+
+            <div class="container about">
+
+                <div class="about-image">
+
+                    <img
+                        src="images/IMG-20260816-WA0019.jpg"
+                        alt="WOW MEDIA"
+                    >
+
+                </div>
+
+                <div class="about-text">
+
+                    <div class="small-title">
+
+                        ABOUT US
+
+                    </div>
+
+                    <h2>
+
+                        الصورة ليست مجرد صورة
+
+                    </h2>
+
+                    <p>
+
+                        في WOW MEDIA نؤمن أن كل مناسبة
+                        لها قصة، وكل قصة تستحق أن تحفظ
+                        بصورة جميلة.
+
+                    </p>
+
+                    <p>
+
+                        نهتم بالتفاصيل من لحظة التصوير
+                        وحتى تسليم العمل النهائي.
+
+                    </p>
+
+                    <ul class="features">
+
+                        <li>
+                            تصوير احترافي
+                        </li>
+
+                        <li>
+                            اهتمام بالتفاصيل
+                        </li>
+
+                        <li>
+                            معالجة أنيقة
+                        </li>
+
+                        <li>
+                            تجربة حجز سهلة
+                        </li>
+
+                    </ul>
+
+                    <a
+                        href="about.html"
+                        class="button"
+                    >
+
+                        تعرفي علينا أكثر
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- الخدمات -->
+
+        <section class="services">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="small-title">
+
+                        OUR SERVICES
+
+                    </div>
+
+                    <h2>
+
+                        خدماتنا
+
+                    </h2>
+
+                    <p>
+
+                        خدمات تصوير وميديا مصممة
+                        لتناسب مناسباتكم ومشاريعكم.
+
+                    </p>
+
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <img
+                            src="اعمالنا/IMG_8205.JPG"
+                            alt="تصوير المناسبات"
+                        >
+
+                        <div class="card-content">
+
+                            <h3>
+
+                                تصوير المناسبات
+
+                            </h3>
+
+                            <p>
+
+                                توثيق المناسبات والاحتفالات
+                                بأجمل التفاصيل.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <img
+                            src="اعمالنا/IMG-20260816-WA0165.jpg"
+                            alt="تصوير التخرج"
+                        >
+
+                        <div class="card-content">
+
+                            <h3>
+
+                                تصوير التخرج
+
+                            </h3>
+
+                            <p>
+
+                                توثيق لحظة الإنجاز والفرحة
+                                بصور مميزة.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <img
+                            src="اعمالنا/20251206_190044.jpg"
+                            alt="جلسات التصوير"
+                        >
+
+                        <div class="card-content">
+
+                            <h3>
+
+                                جلسات التصوير
+
+                            </h3>
+
+                            <p>
+
+                                جلسات شخصية وعائلية
+                                وبورتريه بأسلوب خاص.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div style="text-align:center; margin-top:35px;">
+
+                    <a
+                        href="services.html"
+                        class="button"
+                    >
+
+                        جميع الخدمات
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- معرض الأعمال -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="small-title">
+
+                        PORTFOLIO
+
+                    </div>
+
+                    <h2>
+
+                        مختارات من أعمالنا
+
+                    </h2>
+
+                    <p>
+
+                        بعض اللحظات التي قمنا بتوثيقها.
+
+                    </p>
+
+                </div>
+
+                <div class="gallery">
+
+                   
+
+                <div style="text-align:center; margin-top:35px;">
+
+                    <a
+                        href="portfolio.html"
+                        class="button"
+                    >
+
+                        مشاهدة كل الأعمال
+
+                    </a>
+
+                </div>
+                
+<div class="featured-video">
+
+    <video autoplay muted loop playsinline controls>
+        <source src="اعمالنا/الغرفة_١.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو
+    </video>
+
+</div>
+
+            </div>
+
+        </section>
+
+        <!-- الأسعار -->
+
+        <section class="prices">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="small-title">
+
+                        PACKAGES
+
+                    </div>
+
+                    <h2>
+
+                        باقاتنا
+
+                    </h2>
+
+                    <p>
+
+                        خيارات مختلفة لتناسب احتياجك.
+
+                    </p>
+
+                </div>
+
+                <table class="price-table">
+
+                    <tr>
+
+                        <th>
+                            الخدمة
+                        </th>
+
+                        <th>
+                            الأساسية
+                        </th>
+
+                        <th>
+                            المميزة
+                        </th>
+
+                        <th>
+                            VIP
+                        </th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            التصوير

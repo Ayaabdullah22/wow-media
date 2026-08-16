@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOW MEDIA | خدماتنا</title>
+
+    <style>
+
+        /* =========================
+           الإعدادات العامة
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background-color: #ffffff;
+            color: #121212;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           شريط التنقل
+        ========================= */
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav .active {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background-color: #121212;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #d4af37;
+            color: #121212;
+        }
+
+        /* =========================
+           رأس صفحة الخدمات
+        ========================= */
+
+        .page-hero {
+            min-height: 450px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .page-hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            right: 0;
+            z-index: -2;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0.90),
+                rgba(0,0,0,0.60),
+                rgba(0,0,0,0.25)
+            );
+            z-index: -1;
+        }
+
+        .page-hero-content {
+            max-width: 750px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .page-hero h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .page-hero h1 span {
+            color: #d4af37;
+        }
+
+        .page-hero p {
+            color: #eeeeee;
+            font-size: 18px;
+            max-width: 650px;
+        }
+
+        /* =========================
+           الأقسام
+        ========================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .section-title p {
+            color: #777777;
+        }
+
+        /* =========================
+           بطاقات الخدمات
+        ========================= */
+
+        .services {
+            background-color: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-image {
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .service-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #121212;
+            color: #d4af37;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .service-content {
+            padding: 28px;
+        }
+
+        .service-content h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: #777777;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-list li {
+            margin: 8px 0;
+            color: #555555;
+        }
+
+        .service-list li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* =========================
+           الأزرار
+        ========================= */
+
+        .button {
+            display: inline-block;
+            padding: 11px 25px;
+            border-radius: 30px;
+            background-color: #121212;
+            color: #ffffff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d4af37;
+            color: #121212;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           قسم التخصص
+        ========================= */
+
+        .focus-section {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .focus-section .section-title p {
+            color: #aaaaaa;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .focus-card {
+            padding: 35px 25px;
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .focus-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-6px);
+        }
+
+        .focus-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background-color: #d4af37;
+            color: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .focus-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .focus-card p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        /* =========================
+           خطوات الحجز
+        ========================= */
+
+        .steps {
+            background-color: #f2f2f2;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            background-color: #ffffff;
+            border-radius: 18px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid #dddddd;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            background-color: #121212;
+            color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #777777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           الدعوة للحجز
+        ========================= */
+
+        .cta {
+            background-color: #d4af37;
+            color: #121212;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta .button {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .cta .button:hover {
+            background-color: #ffffff;
+            color: #121212;
+        }
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+            background-color: #080808;
+            color: #999999;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            display: block;
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           الأجهزة اللوحية
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .page-hero h1 {
+                font-size: 50px;
+            }
+        }
+
+        /* =========================
+           الهاتف
+        ========================= */
+
+        @media (max-width: 550px) {
+
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         شريط التنقل
+    ========================= -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                WOW <span>MEDIA</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="about.html">
+                    من نحن
+                </a>
+
+                <a href="services.html" class="active">
+                    خدماتنا
+                </a>
+
+                <a href="portfolio.html">
+                    أعمالنا
+                </a>
+
+                <a href="prices.html">
+                    الأسعار
+                </a>
+
+                <a href="booking.html">
+                    الحجز
+                </a>
+
+                <a href="contact.html">
+                    تواصل معنا
+                </a>
+
+            </nav>
+
+            <a href="booking.html" class="nav-button">
+                احجزي الآن
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         رأس الصفحة
+    ========================= -->
+
+    <section class="page-hero">
+
+        <img
+            src="images/20260325_061638.png"
+            alt="خدمات WOW MEDIA"
+        >
+
+        <div class="container page-hero-content">
+
+            <div class="small-title">
+                WOW MEDIA SERVICES
+            </div>
+
+            <h1>
+
+                خدماتنا
+                <span>المميزة</span>
+
+            </h1>
+
+            <p>
+
+                نوثق أجمل لحظاتكم من خلال خدمات
+                التصوير المتخصصة في المناسبات
+                والتخرج وجلسات التصوير.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         الخدمات
+    ========================= -->
+
+    <section class="services">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    OUR SERVICES
+                </div>
+
+                <h2>
+                    ماذا نقدم؟
+                </h2>
+
+                <p>
+
+                    ثلاث خدمات أساسية نركز فيها على
+                    الجودة والإبداع والاهتمام بكل تفاصيل
+                    اللحظة.
+
+                </p>
+
+            </div>
+
+            <div class="services-grid">
+
+                <!-- =====================
+                     الخدمة الأولى
+                ====================== -->
+
+                <div class="service-card">
+
+                    <div class="service-image">
+
+                        <img
+                            src="اعمالنا/PhotoGridLite_1786877130517.jpg"
+                            alt="تصوير المناسبات"
+                        >
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <h3>
+                            تصوير المناسبات
+                        </h3>
+
+                        <p>
+
+                            نوثق مناسباتكم واحتفالاتكم
+                            ونركز على اللحظات الجميلة
+                            والتفاصيل التي تستحق أن تبقى.
+
+                        </p>
+
+                        <ul class="service-list">
+
+                            <li>
+                                تصوير الحفل والمناسبة
+                            </li>
+
+                            <li>
+                                صور فردية وجماعية
+                            </li>
+
+                            <li>
+                                توثيق التفاصيل
+                            </li>
+
+                            <li>
+                                صور تذكارية
+                            </li>
+
+                        </ul>
+
+                        <a
+                            href="booking.html"
+                            class="button"
+                        >
+                            احجزي الخدمة
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- =====================
+                     الخدمة الثانية
+                ====================== -->
+
+                <div class="service-card">
+
+                    <div class="service-image">
+
+                        <img
+                            src="اعمالنا/IMG-20260816-WA0155.jpg"
+                            alt="تصوير التخرج"
+                        >
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <h3>
+                            تصوير التخرج
+                        </h3>
+
+                        <p>
+
+                            نوثق فرحة التخرج والإنجاز
+                            بصور تذكارية تعبّر عن هذه
+                            اللحظة المميزة.
+
+                        </p>
+
+                        <ul class="service-list">
+
+                            <li>
+                                جلسات تخرج فردية
+                            </li>
+
+                            <li>
+                                جلسات جماعية
+                            </li>
+
+                            <li>
+                                صور مع الأصدقاء والعائلة
+                            </li>
+
+                            <li>
+                                صور تذكارية متنوعة
+                            </li>
+
+                        </ul>
+
+                        <a
+                            href="booking.html"
+                            class="button"
+                        >
+                            احجزي الخدمة
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- =====================
+                     الخدمة الثالثة
+                ====================== -->
+
+                <div class="service-card">
+
+                    <div class="service-image">
+
+                        <img
+                            src="اعمالنا/PhotoGridLite_1786877174677.jpg"
+                            alt="جلسات التصوير"
+                        >
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <h3>
+                            جلسات التصوير
+                        </h3>
+
+                        <p>
+
+                            جلسات تصوير شخصية وعائلية
+                            وبورتريه، نعمل فيها على
+                            إظهار الشخصية بأجمل صورة.
+
+                        </p>
+
+                        <ul class="service-list">
+
+                            <li>
+                                جلسات شخصية
+                            </li>
+
+                            <li>
+                                تصوير بورتريه
+                            </li>
+
+                            <li>
+                                جلسات عائلية
+                            </li>
+
+                            <li>
+                                جلسات خارجية
+                            </li>
+
+                        </ul>
+
+                        <a
+                            href="booking.html"
+                            class="button"
+                        >
+                            احجزي الخدمة
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         تخصص WOW MEDIA
+    ========================= -->
+
+    <section class="focus-section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    OUR FOCUS
+                </div>
+
+                <h2>
+                    ثلاث لحظات نحب توثيقها
+                </h2>
+
+                <p>
+
+                    نركز على تقديم تجربة تصوير
+                    تهتم باللحظة وبالشخص وبالتفاصيل.
+
+                </p>
+
+            </div>
+
+            <div class="focus-grid">
+
+                <div class="focus-card">
+
+                    <div class="focus-icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        المناسبات
